@@ -17,7 +17,7 @@ import { HealthModule } from "./modules/health/health.module";
     }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => ({
+      useFactory: (configService: ConfigService) => ({
         uri: configService.get<string>("MONGODB_URI"),
         dbName: configService.get<string>("DB_NAME"),
       }),
